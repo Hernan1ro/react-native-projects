@@ -1,23 +1,7 @@
 import React from 'react';
-import {Text, View} from 'react-native';
+import {CounterScreen} from './src/screens/CounterScreen';
+// import {HelloWorldScreen} from './src/screens/HelloWorldScreen';
 
-const App = () => {
-  return (
-    <View
-      style={{
-        flex: 1,
-        backgroundColor: 'cyan',
-        justifyContent: 'center',
-      }}>
-      <Text
-        style={{
-          fontSize: 45,
-          textAlign: 'center',
-        }}>
-        Softix app
-      </Text>
-    </View>
-  );
+export const App = () => {
+  return <CounterScreen />;
 };
-
-export default App;
