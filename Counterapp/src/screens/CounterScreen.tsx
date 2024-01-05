@@ -5,34 +5,63 @@ import {
   TouchableOpacity,
   StyleSheet,
   TouchableNativeFeedback,
+  Platform,
 } from 'react-native';
 
 export const CounterScreen = () => {
   const [counter, setCounter] = useState(23);
 
-  return (
-    <View style={styles.container}>
-      <Text style={styles.title}>SOFTIX USERS: {counter}</Text>
-      <View style={styles.fabLocationBL}>
-        <TouchableNativeFeedback
-          onPress={() => setCounter(counter - 1)}
-          background={TouchableNativeFeedback.Ripple('#2842B', false, 30)}>
+  const ios = () => {
+    return (
+      <View style={styles.container}>
+        <Text style={styles.title}>SOFTIX USERS: {counter}</Text>
+        <TouchableOpacity
+          activeOpacity={0.8}
+          style={styles.fabLocationBL}
+          onPress={() => setCounter(counter - 1)}>
           <View style={styles.fab}>
             <Text style={styles.fabText}>-1</Text>
           </View>
-        </TouchableNativeFeedback>
-      </View>
-      <View style={styles.fabLocationBR}>
-        <TouchableNativeFeedback
-          onPress={() => setCounter(counter + 1)}
-          background={TouchableNativeFeedback.Ripple('#2842B', false, 30)}>
+        </TouchableOpacity>
+        <TouchableOpacity
+          activeOpacity={0.2}
+          style={styles.fabLocationBR}
+          onPress={() => setCounter(counter + 1)}>
           <View style={styles.fab}>
             <Text style={styles.fabText}>+1</Text>
           </View>
-        </TouchableNativeFeedback>
+        </TouchableOpacity>
       </View>
-    </View>
-  );
+    );
+  };
+
+  const android = () => {
+    return (
+      <View style={styles.container}>
+        <Text style={styles.title}>SOFTIX USERS: {counter}</Text>
+        <View style={styles.fabLocationBL}>
+          <TouchableNativeFeedback
+            onPress={() => setCounter(counter - 1)}
+            background={TouchableNativeFeedback.Ripple('#2842B', false, 30)}>
+            <View style={styles.fab}>
+              <Text style={styles.fabText}>-1</Text>
+            </View>
+          </TouchableNativeFeedback>
+        </View>
+        <View style={styles.fabLocationBR}>
+          <TouchableNativeFeedback
+            onPress={() => setCounter(counter + 1)}
+            background={TouchableNativeFeedback.Ripple('#2842B', false, 30)}>
+            <View style={styles.fab}>
+              <Text style={styles.fabText}>+1</Text>
+            </View>
+          </TouchableNativeFeedback>
+        </View>
+      </View>
+    );
+  };
+
+  return Platform.OS == 'ios' ? ios() : android();
 };
 
 const styles = StyleSheet.create({
