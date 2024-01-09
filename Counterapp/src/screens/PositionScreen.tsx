@@ -12,10 +12,12 @@ export const PositionScreen = () => {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
+    // flex: 1,
     backgroundColor: '#28c4d9',
-    justifyContent: 'center',
-    alignItems: 'center',
+    // justifyContent: 'center',
+    // alignItems: 'center',
+    width: 400,
+    height: 400,
   },
 
   purpleBox: {
@@ -25,7 +27,8 @@ const styles = StyleSheet.create({
     borderWidth: 10,
     borderColor: 'white',
     borderRadius: 10,
-    top: 50,
+    position: 'absolute',
+    bottom: 0,
   },
   orangeBox: {
     width: 100,
@@ -34,5 +37,12 @@ const styles = StyleSheet.create({
     borderWidth: 10,
     borderColor: 'white',
     borderRadius: 10,
+  },
+  greenBox: {
+    backgroundColor: 'green',
+    borderWidth: 10,
+    borderColor: 'white',
+    borderRadius: 10,
+    ...StyleSheet.absoluteFillObject,
   },
 });
