@@ -5,13 +5,13 @@ import {styles} from '../theme/appTheme';
 export const Btn = ({
   text,
   color = '#2d2d2d',
-  textColor = 'black',
   width = false,
+  action,
 }: {
   text: string;
   color?: string;
-  textColor?: string;
   width?: boolean | number;
+  action: (arg: string) => void;
 }) => {
   const colorBtn = {
     backgroundColor: color,
@@ -23,8 +23,9 @@ export const Btn = ({
   const btnWidth = {
     width: width ? 180 : 80,
   };
+
   return (
-    <TouchableOpacity>
+    <TouchableOpacity onPress={() => console.log(text)}>
       <View style={[styles.btn, colorBtn, btnWidth]}>
         <Text style={[styles.btnText, btnTextColor]}>{text}</Text>
       </View>
