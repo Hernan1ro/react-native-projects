@@ -12,7 +12,7 @@ export const styles = StyleSheet.create({
     justifyContent: 'flex-end',
   },
   text: {
-    fontSize: 60,
+    fontSize: 80,
     color: 'white',
     textAlign: 'right',
   },
@@ -32,7 +32,6 @@ export const styles = StyleSheet.create({
   btn: {
     height: 80,
     width: 80,
-    backgroundColor: '#2d2d2d',
     borderRadius: 100,
     justifyContent: 'center',
     marginHorizontal: 10,
