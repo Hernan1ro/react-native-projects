@@ -4,8 +4,15 @@ import {styles} from '../theme/appTheme';
 
 export const CalculatorScreen = () => {
   return (
-    <View>
-      <Text style={styles.text}>Hello softix new app</Text>
+    <View style={styles.calculatorContainer}>
+      <Text style={styles.smallResult}>200.000</Text>
+      <Text style={styles.text}>150.000</Text>
+
+      <View>
+        <View style={styles.btn}>
+          <Text style={styles.btnText}>1</Text>
+        </View>
+      </View>
     </View>
   );
 };
