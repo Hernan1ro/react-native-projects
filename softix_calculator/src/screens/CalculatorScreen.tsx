@@ -100,6 +100,26 @@ export const CalculatorScreen = () => {
     lastOperation.current = Opeators.add;
   };
 
+  const calculate = () => {
+    const num1 = Number(number);
+    const num2 = Number(prevNum);
+
+    switch (lastOperation.current) {
+      case Opeators.add:
+        setNumber(`${num1 + num2}`);
+        break;
+      case Opeators.substract:
+        setNumber(`${num2 - num1}`);
+        break;
+      case Opeators.multiply:
+        setNumber(`${num1 * num2}`);
+        break;
+      case Opeators.divide:
+        setNumber(`${num2 / num1}`);
+        break;
+    }
+  };
+
   return (
     <View style={styles.calculatorContainer}>
       <Text style={styles.smallResult}>{prevNum == '0' ? '' : prevNum}</Text>
@@ -138,7 +158,7 @@ export const CalculatorScreen = () => {
       <View style={styles.row}>
         <Btn text="0" width action={buildNumber} />
         <Btn text="." action={buildNumber} />
-        <Btn text="=" color="#ff9427" action={clear} />
+        <Btn text="=" color="#ff9427" action={calculate} />
       </View>
     </View>
   );
