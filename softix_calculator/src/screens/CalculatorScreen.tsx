@@ -1,5 +1,4 @@
 import {View, Text} from 'react-native';
-import {useState, useRef} from 'react';
 import {styles} from '../theme/appTheme';
 import {Btn} from '../components/Btn';
 import {useCalculator} from '../hooks';
