@@ -5,14 +5,13 @@ import {Btn} from '../components/Btn';
 
 export const CalculatorScreen = () => {
   const [number, setNumber] = useState('0');
-  const [prevNum, setPrevNum] = useState('100');
+  const [prevNum, setPrevNum] = useState('0');
 
   const clear = () => {
     setNumber('0');
   };
 
   const buildNumber = (textNum: string) => {
-    console.log(textNum);
     setNumber(number + textNum);
   };
 

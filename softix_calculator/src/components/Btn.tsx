@@ -25,7 +25,7 @@ export const Btn = ({
   };
 
   return (
-    <TouchableOpacity onPress={() => console.log(text)}>
+    <TouchableOpacity onPress={() => action(text)}>
       <View style={[styles.btn, colorBtn, btnWidth]}>
         <Text style={[styles.btnText, btnTextColor]}>{text}</Text>
       </View>
