@@ -12,7 +12,40 @@ export const CalculatorScreen = () => {
   };
 
   const buildNumber = (textNum: string) => {
-    setNumber(number + textNum);
+    // validations
+
+    if (number.includes('.') && textNum == '.') return;
+
+    if (number.startsWith('0') || number.startsWith('-0')) {
+      // decimal dot
+      if (textNum === '.') {
+        setNumber(number + textNum);
+
+        // theres another zero and a dot
+      } else if (textNum === '0' && number.includes('.')) {
+        setNumber(number + textNum);
+
+        // test if different to zero and does not have dot
+      } else if (textNum !== '0' && !number.includes('.')) {
+        setNumber(textNum);
+
+        // Avoid irregular decimals
+      } else if (textNum === '0' && !number.includes('.')) {
+        setNumber(number);
+      } else {
+        setNumber(number + textNum);
+      }
+    } else {
+      setNumber(number + textNum);
+    }
+  };
+
+  const positiveNegative = () => {
+    if (number.includes('-')) {
+      setNumber(number.replace('-', ''));
+    } else {
+      setNumber('-' + number);
+    }
   };
 
   return (
@@ -24,7 +57,7 @@ export const CalculatorScreen = () => {
       {/*---------- button row ----------*/}
       <View style={styles.row}>
         <Btn text="C" color="#9b9b9b" action={clear} />
-        <Btn text="+/-" color="#9b9b9b" action={clear} />
+        <Btn text="+/-" color="#9b9b9b" action={positiveNegative} />
         <Btn text="del" color="#9b9b9b" action={clear} />
         <Btn text="/" color="#ff9427" action={clear} />
       </View>
