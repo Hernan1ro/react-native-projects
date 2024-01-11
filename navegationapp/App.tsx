@@ -1,21 +1,17 @@
 import React from 'react';
 import {SafeAreaView, StyleSheet, Text, View} from 'react-native';
+import {NavigationContainer} from '@react-navigation/native';
 
 function App(): React.JSX.Element {
   return (
-    <SafeAreaView style={styles.sectionContainer}>
-      <View>
-        <Text>Softix app</Text>
-      </View>
-    </SafeAreaView>
+    <NavigationContainer>
+      <SafeAreaView>
+        <View>
+          <Text>Softix app</Text>
+        </View>
+      </SafeAreaView>
+    </NavigationContainer>
   );
 }
-
-const styles = StyleSheet.create({
-  sectionContainer: {
-    marginTop: 32,
-    paddingHorizontal: 24,
-  },
-});
 
 export default App;
