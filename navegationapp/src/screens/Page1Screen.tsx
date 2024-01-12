@@ -18,15 +18,28 @@ export const Page1Screen = (props: Props) => {
 
       <Text>Nav to arguments</Text>
 
-      <TouchableOpacity
-        onPress={() =>
-          navigation.navigate('PersonScreen', {
-            id: 1,
-            name: 'Johan',
-          })
-        }>
-        <Text>Go to Person Screen</Text>
-      </TouchableOpacity>
+      <View style={{flexDirection: 'row'}}>
+        <TouchableOpacity
+          style={{...styles.btnBig, backgroundColor: '#5856d6'}}
+          onPress={() =>
+            navigation.navigate('PersonScreen', {
+              id: 1,
+              name: 'Johan',
+            })
+          }>
+          <Text style={styles.btnText}>Johan</Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+          style={styles.btnBig}
+          onPress={() =>
+            navigation.navigate('PersonScreen', {
+              id: 2,
+              name: 'Tenma',
+            })
+          }>
+          <Text style={styles.btnText}>Tenma</Text>
+        </TouchableOpacity>
+      </View>
     </View>
   );
 };
