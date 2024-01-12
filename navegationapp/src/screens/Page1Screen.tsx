@@ -1,5 +1,5 @@
 import {StackScreenProps} from '@react-navigation/stack';
-import {Text, View, Button} from 'react-native';
+import {Text, View, Button, TouchableOpacity} from 'react-native';
 import {styles} from '../theme/appTheme';
 
 // Enable typescript properties
@@ -15,6 +15,18 @@ export const Page1Screen = (props: Props) => {
         title="Ir a página 2"
         onPress={() => navigation.navigate('Page2Screen')}
       />
+
+      <Text>Nav to arguments</Text>
+
+      <TouchableOpacity
+        onPress={() =>
+          navigation.navigate('PersonScreen', {
+            id: 1,
+            name: 'Johan',
+          })
+        }>
+        <Text>Go to Person Screen</Text>
+      </TouchableOpacity>
     </View>
   );
 };
