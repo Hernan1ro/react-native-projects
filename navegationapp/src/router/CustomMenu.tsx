@@ -10,7 +10,7 @@ import {StackNavigator} from './StackNavigator';
 import {SettingsScreen} from '../screens/SettingsScreen';
 import {Page2Screen} from '../screens/Page2Screen';
 import {useWindowDimensions} from 'react-native';
-import {Text, View, Image} from 'react-native';
+import {Text, View, Image, TouchableOpacity} from 'react-native';
 import {styles} from '../theme/appTheme';
 
 const Drawer = createDrawerNavigator();
@@ -32,7 +32,7 @@ export const CustomMenu = () => {
   );
 };
 
-const InternalMenu = (props: DrawerContentComponentProps) => {
+const InternalMenu = ({navigation}: DrawerContentComponentProps) => {
   return (
     <DrawerContentScrollView>
       <View style={styles.avatarContainer}>
@@ -42,6 +42,21 @@ const InternalMenu = (props: DrawerContentComponentProps) => {
           }}
           style={styles.avatar}
         />
+      </View>
+
+      {/*------- menu options -----------*/}
+
+      <View style={styles.menuContainer}>
+        <TouchableOpacity
+          onPress={() => navigation.navigate('StackNavigator')}
+          style={styles.menuBtn}>
+          <Text style={styles.menuText}>Navegation</Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+          onPress={() => navigation.navigate('SettingsScreen')}
+          style={styles.menuBtn}>
+          <Text style={styles.menuText}>Settings</Text>
+        </TouchableOpacity>
       </View>
     </DrawerContentScrollView>
   );
