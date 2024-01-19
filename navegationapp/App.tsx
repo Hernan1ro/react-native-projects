@@ -6,6 +6,7 @@ import {NavigationContainer} from '@react-navigation/native';
 // import {StackNavigator} from './src/router/StackNavigator';
 import {AsideMenu} from './src/router/AsideMenu';
 import {CustomMenu} from './src/router/CustomMenu';
+import {Tabs} from './src/router/Tabs';
 
 function App(): React.JSX.Element {
   return (
@@ -13,6 +14,7 @@ function App(): React.JSX.Element {
       {/* <AsideMenu /> */}
       <CustomMenu />
       {/* <StackNavigator /> */}
+      {/* <Tabs /> */}
     </NavigationContainer>
   );
 }

@@ -12,6 +12,7 @@ import {Page2Screen} from '../screens/Page2Screen';
 import {useWindowDimensions} from 'react-native';
 import {Text, View, Image, TouchableOpacity} from 'react-native';
 import {styles} from '../theme/appTheme';
+import {Tabs} from './Tabs';
 
 const Drawer = createDrawerNavigator();
 
@@ -25,7 +26,8 @@ export const CustomMenu = () => {
         // drawerPosition: 'right',
         drawerType: width >= 600 ? 'permanent' : 'front',
       }}>
-      <Drawer.Screen name="StackNavigator" component={StackNavigator} />
+      <Drawer.Screen name="Tabs" component={Tabs} />
+      {/* <Drawer.Screen name="StackNavigator" component={StackNavigator} /> */}
       <Drawer.Screen name="Page2Screen" component={Page2Screen} />
       <Drawer.Screen name="SettingsScreen" component={SettingsScreen} />
     </Drawer.Navigator>
@@ -48,7 +50,7 @@ const InternalMenu = ({navigation}: DrawerContentComponentProps) => {
 
       <View style={styles.menuContainer}>
         <TouchableOpacity
-          onPress={() => navigation.navigate('StackNavigator')}
+          onPress={() => navigation.navigate('Tabs')}
           style={styles.menuBtn}>
           <Text style={styles.menuText}>Navegation</Text>
         </TouchableOpacity>
