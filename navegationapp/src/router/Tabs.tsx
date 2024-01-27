@@ -4,12 +4,42 @@ import {Tab1screen} from '../screens/Tab1screen';
 import {Tab2screen} from '../screens/Tab2screen';
 import {Tab3screen} from '../screens/Tab3screen';
 import {StackNavigator} from './StackNavigator';
-import {Text} from 'react-native';
-import Icon from 'react-native-vector-icons/Ionicons';
+import {Platform, Text} from 'react-native';
+
+import {createMaterialBottomTabNavigator} from '@react-navigation/material-bottom-tabs';
 
 const Tab = createBottomTabNavigator();
+const TabAndroid = createMaterialBottomTabNavigator();
 
 export const Tabs = () => {
+  return Platform.OS != 'ios' ? <TabsIOS /> : <TabsAndroid />;
+};
+
+function TabsAndroid() {
+  return (
+    <TabAndroid.Navigator>
+      <TabAndroid.Screen
+        name="Tab1Screen"
+        options={{
+          title: 'Tab1',
+        }}
+        component={Tab1screen}
+      />
+      <TabAndroid.Screen
+        name="Tab2Screen"
+        options={{title: 'Tab2'}}
+        component={Tab2screen}
+      />
+      <TabAndroid.Screen
+        name="StackNavigator"
+        options={{title: 'Stack'}}
+        component={StackNavigator}
+      />
+    </TabAndroid.Navigator>
+  );
+}
+
+export const TabsIOS = () => {
   return (
     <Tab.Navigator
       sceneContainerStyle={{
@@ -60,14 +90,3 @@ export const Tabs = () => {
     </Tab.Navigator>
   );
 };
-
-{
-  /* <Tab.Screen
-  name="Tab1Screen"
-  options={{
-    title: 'Tab1',
-    tabBarIcon: props => <Text style={{color: props.color}}>T1</Text>,
-  }}
-  component={Tab1screen}
-/> */
-}
